@@ -1,0 +1,428 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #f0f4f8;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.header-container {
+  width: 100%;
+  background-color: #e0e0e0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.header-container .link {
+  width: 100%;
+  text-decoration: none;
+}
+
+.header-container .link h1 {
+  width: 100%;
+  font-size: 32px;
+  font-family: "Luckiest Guy";
+  color: #ff0000;
+  text-align: center;
+  cursor: pointer;
+}
+
+main {
+  min-height: 100vh;
+  margin-bottom: -40px;
+  display: table;
+}
+
+main section {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+main .push {
+  height: 40px;
+}
+
+main .game-controls {
+  display: flex;
+  padding-top: 25px;
+  gap: 47px;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  background-color: #e0e0e0;
+  flex-wrap: wrap;
+}
+
+main .game-controls div,
+main .game-controls form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+main .game-controls form {
+  gap: 10px;
+}
+
+main .game-controls div p,
+main .game-controls form label,
+main .game-controls div span {
+  font-size: 18px;
+  color: #333;
+  font-weight: 500;
+  font-family: "Quicksand";
+}
+
+main .game-controls div span {
+  font-weight: bold;
+}
+
+main .game-controls .timer {
+  width: 183px;
+}
+
+main .game-controls .counter {
+  width: 136px;
+}
+
+main .game-controls form {
+  width: 160px;
+}
+
+main .game-controls form select {
+  padding: 10px;
+}
+
+main .game-controls form select option {
+  font-size: 16px;
+  font-weight: 500;
+  font-family: "Quicksand";
+  color: #000;
+}
+
+main .game-controls form label {
+  color: #1a1a4b;
+}
+
+main .game-controls .buttons {
+  width: 264px;
+  gap: 10px;
+}
+
+main .game-controls .buttons button,
+main .game-controls .buttons .history-button {
+  text-align: center;
+  width: 81.33px;
+  padding: 10px;
+  font-family: "Quicksand";
+  font-size: 16px;
+  border: none;
+  appearance: none;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+main .game-controls .buttons button:hover,
+main .game-controls .buttons .history-button:hover {
+  border: #000 1px solid;
+  transition: all ease-in 300ms;
+}
+
+main .game-controls .buttons .reset {
+  color: #fff;
+  background-color: #ffa500;
+}
+
+main .game-controls .buttons .save {
+  color: #333;
+  background-color: #00ff00;
+}
+
+main .game-controls .buttons .history-button {
+  color: #000;
+  background-color: #00ffff;
+  text-decoration: none;
+}
+
+footer {
+  height: 40px;
+  background-color: #1a1a4b;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+footer .volume-controls {
+  display: flex;
+  width: 61px;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
+}
+
+footer .volume-controls svg {
+  fill: #00ffff;
+  width: 18px;
+}
+
+footer .instruction-btn,
+.delete-btn {
+  width: 111px;
+  padding: 10px;
+  background-color: #00ff00;
+  text-align: center;
+  font-weight: bold;
+  font-size: 16px;
+  font-family: "Quicksand";
+  border: none;
+  appearance: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+footer .instruction-btn:hover {
+  border: 1px solid #000;
+  transition: all ease-in 300ms;
+}
+
+main .memory-game {
+  width: 440px;
+  height: 440px;
+  display: flex;
+  flex-wrap: wrap;
+  margin: auto;
+  margin-top: 40px;
+  perspective: 1000px;
+}
+
+main .save-history {
+  display: flex;
+  margin-top: 40px;
+  justify-content: space-evenly;
+  background: #1a1a1a;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 255, 0, 0.7);
+}
+
+main .save-history .score-board {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: "Quicksand";
+  color: #fff;
+}
+
+main .save-history .score-board th {
+  background-color: #333;
+  color: #fff;
+  text-align: left;
+  border-bottom: 2px solid #0f0;
+}
+
+main .save-history .score-board th tr {
+  border-bottom: 1px solid #444;
+}
+
+main .save-history .score-board th tr:nth-child(even) {
+  background: #2a2a2a;
+}
+
+main .memory-card {
+  width: calc(25% - 10px);
+  height: calc(33.333% - 10px);
+  position: relative;
+  margin: 5px;
+  transform: scale(1);
+  transform-style: preserve-3d;
+  transition: transform 0.5s;
+}
+
+main .memory-card:active {
+  transform: scale(0.97);
+  transition: transform 0.2s;
+}
+
+main .memory-card.flip {
+  transform: rotateY(180deg);
+}
+
+main .memory-game .front-face,
+.back-face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  border-radius: 5px;
+  backface-visibility: hidden;
+}
+
+main .memory-game .front-face {
+  transform: rotateY(180deg);
+}
+
+main .results-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+main .results-header h2 {
+  font-size: 24px;
+  font-family: "quicksand";
+  font-weight: bold;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Ensure it is above all other content */
+}
+
+.modal.active {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Ensure it is above all other content */
+}
+
+.modal.active .content {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  width: 838px;
+  background-color: #fff;
+}
+
+.modal.active .content p {
+  font-size: 18px;
+  font-family: "quicksand";
+  font-weight: bold;
+}
+
+.modal.active .content .buttons {
+  display: flex;
+  justify-content: flex-end;
+  background-color: #fff;
+  width: 838px;
+  align-self: flex-end;
+  gap: 19px;
+}
+
+.modal.active .content .buttons .ok,
+.modal.active .content .buttons .confirm,
+.modal.active .content .buttons .cancel,
+.modal.active .content .buttons .ok-instruction {
+  cursor: pointer;
+  text-align: center;
+  background-color: #00ff00;
+  padding: 10px;
+  width: 90px;
+  border: none;
+  appearance: none;
+  font-weight: 600;
+  color: #333;
+  font-family: "quicksand";
+  font-size: 16px;
+}
+
+.modal.active .content .buttons .confirm,
+.delete-btn {
+  font-weight: 500;
+  font-size: 18px;
+  background-color: #ff0000;
+  width: 121px;
+  color: #fff;
+}
+
+.modal.active .content .buttons .cancel {
+  width: 88px;
+  font-size: 18px;
+  font-weight: bold;
+  background-color: #e0e0e0;
+  color: #000;
+}
+
+.modal.active .content .header-instruction {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  background-color: #fff;
+}
+
+.modal.active .content header h2 {
+  font-size: 24px;
+  color: #000;
+  text-align: center;
+  font-weight: bold;
+  font-family: "quicksand";
+}
+
+.modal.active .content .instruction-nav {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  align-items: center;
+  background-color: #fff;
+}
+
+.modal.active .content nav ol {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-self: flex-start;
+  list-style: none;
+}
+
+.modal.active .content nav ol li {
+  font-family: "quicksand";
+  font-weight: 500;
+  font-size: 16px;
+  color: #000;
+}
+
+.modal.active .content .buttons .ok-instruction {
+  padding: 10px 20px;
+  width: 100%;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.hide {
+  visibility: hidden;
+}
+
+footer .volume-controls .volume-on.active,
+footer .volume-controls .volume-off.active {
+  fill: #00ff00;
+}
+
+.delete-btn {
+  width: 90px;
+
+  margin: 10px 0;
+}
